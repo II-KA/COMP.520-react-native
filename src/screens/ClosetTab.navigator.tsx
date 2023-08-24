@@ -10,8 +10,16 @@ const ClosetStack = createStackNavigator<ClosetStackParamList>();
 export const ClosetTabNavigator: React.FC = () => {
   return (
     <ClosetStack.Navigator initialRouteName="FirstPage">
-      <ClosetStack.Screen name="FirstPage" component={ClosetTabFirstPage} />
-      <ClosetStack.Screen name="SecondPage" component={ClosetTabSecondPage} />
+      <ClosetStack.Screen
+        name="FirstPage"
+        component={ClosetTabFirstPage}
+        options={{ title: 'Closet' }}
+      />
+      <ClosetStack.Screen
+        name="SecondPage"
+        component={ClosetTabSecondPage}
+        options={{ title: 'Closet' }}
+      />
     </ClosetStack.Navigator>
   );
 };
