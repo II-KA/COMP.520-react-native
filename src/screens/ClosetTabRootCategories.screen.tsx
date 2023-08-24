@@ -1,12 +1,15 @@
 import React from 'react';
 import { StyleSheet, View, Button } from 'react-native';
+import { useSelector } from 'react-redux';
 import { Greeting } from '~src/components/Greeting';
 import {
   useClosetNavigation,
   useRootNavigation,
 } from '~src/hooks/useTypedNavigation';
+import { closetCategoriesSelector } from '~src/redux/closet/selectors';
 
-export const ClosetTabFirstPage = () => {
+export const ClosetTabRootCategories = () => {
+  const categories = useSelector(closetCategoriesSelector);
   const homeNavigation = useClosetNavigation();
   const rootNavigation = useRootNavigation();
   return (

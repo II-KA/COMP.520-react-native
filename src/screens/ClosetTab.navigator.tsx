@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { createStackNavigator } from '@react-navigation/stack';
-import { ClosetTabFirstPage } from './ClosetTabFirstPage.screen';
+import { ClosetTabRootCategories } from './ClosetTabRootCategories.screen';
 import { ClosetTabSecondPage } from './ClosetTabSecondPage.screen';
 import { ClosetStackParamList } from '~src/types';
 
@@ -12,7 +12,7 @@ export const ClosetTabNavigator: React.FC = () => {
     <ClosetStack.Navigator initialRouteName="FirstPage">
       <ClosetStack.Screen
         name="FirstPage"
-        component={ClosetTabFirstPage}
+        component={ClosetTabRootCategories}
         options={{ title: 'Closet' }}
       />
       <ClosetStack.Screen
