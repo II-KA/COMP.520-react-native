@@ -1,10 +1,11 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { AppText } from '~src/components/AppText';
 
 export const CalendarTab: React.FC = () => {
   return (
     <View style={styles.container}>
-      <Text>Other Bottom Tab</Text>
+      <AppText size={16}>TODO: Calendar view</AppText>
     </View>
   );
 };
