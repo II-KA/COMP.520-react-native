@@ -5,7 +5,7 @@ import {
   createStackNavigator,
 } from '@react-navigation/stack';
 import { RootStackParamList } from '~src/types';
-import { ExampleModal } from './ExampleModal.screen';
+import { AddCategoryModal } from './AddCategoryModal.screen';
 import { BottomTabsNavigator } from './BottomTabs.navigator';
 import { StackNavigationOptions } from '@react-navigation/stack';
 import { BackIcon } from 'assets/Icons';
@@ -43,8 +43,8 @@ export const RootNavigator: React.FC = () => {
       />
       <RootStack.Screen
         name="ExampleModal"
-        component={ExampleModal}
-        options={modalScreenOptions}
+        component={AddCategoryModal}
+        options={{ ...modalScreenOptions, title: 'Add Category' }}
       />
     </RootStack.Navigator>
   );

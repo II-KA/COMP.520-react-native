@@ -1,6 +1,10 @@
 import React, { FC } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, Button } from 'react-native';
 import { ClosetCategories } from '~src/components/ClosetCategories';
+import {
+  useClosetNavigation,
+  useRootNavigation,
+} from '~src/hooks/useTypedNavigation';
 import { CategoryPageProps } from '~src/types';
 
 export const ClosetTabCategoryPage: FC<CategoryPageProps> = ({
@@ -8,7 +12,16 @@ export const ClosetTabCategoryPage: FC<CategoryPageProps> = ({
   route: {
     params: { name, categories, items },
   },
-}) => (categories ? <ClosetCategories categories={categories} /> : null);
+}) => {
+  const rootNavigation = useRootNavigation();
+  if (categories) <ClosetCategories categories={categories} />;
+  return (
+    <Button
+      title="Add new category"
+      onPress={() => rootNavigation.navigate('ExampleModal')}
+    />
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
