@@ -1,4 +1,5 @@
 import { NavigatorScreenParams } from '@react-navigation/native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 export type RootStackParamList = {
   BottomTabs: NavigatorScreenParams<BottomTabsParamList>;
@@ -11,14 +12,20 @@ export type BottomTabsParamList = {
 };
 
 export type ClosetStackParamList = {
-  FirstPage: undefined;
-  SecondPage: undefined;
+  RootPage: undefined | ClosetCategory;
+  CategoryPage: ClosetCategory;
 };
+
+export type CategoryPageProps = NativeStackScreenProps<
+  ClosetStackParamList,
+  'CategoryPage'
+>;
 
 interface ClosetCategoryBasics {
   name: string;
   position: number;
 }
+
 interface ClosetCategoryWithCategories extends ClosetCategoryBasics {
   categories: ClosetCategory[];
   items?: never;

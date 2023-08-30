@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { ClosetTabRootCategories } from './ClosetTabRootCategories.screen';
-import { ClosetTabSecondPage } from './ClosetTabSecondPage.screen';
+import { ClosetTabRootPage } from './ClosetTabRootPage.screen';
+import { ClosetTabCategoryPage } from './ClosetTabCategoryPage.screen';
 import { ClosetStackParamList } from '~src/types';
 import { theme } from '~src/theme';
 import { BackIcon } from 'assets/Icons';
@@ -11,7 +11,8 @@ const ClosetStack = createStackNavigator<ClosetStackParamList>();
 export const ClosetTabNavigator: React.FC = () => {
   return (
     <ClosetStack.Navigator
-      initialRouteName="FirstPage"
+      initialRouteName="RootPage"
+      //detachInactiveScreens={false}
       screenOptions={({ route: _ }) => ({
         headerTitleAlign: 'center',
         headerTitleStyle: { fontFamily: theme.IBMPlexSans300, fontSize: 22 },
@@ -22,14 +23,14 @@ export const ClosetTabNavigator: React.FC = () => {
         ),
       })}>
       <ClosetStack.Screen
-        name="FirstPage"
-        component={ClosetTabRootCategories}
+        name="RootPage"
+        component={ClosetTabRootPage}
         options={{ title: 'Closet' }}
       />
       <ClosetStack.Screen
-        name="SecondPage"
-        component={ClosetTabSecondPage}
-        options={{ title: 'Closet' }}
+        name="CategoryPage"
+        component={ClosetTabCategoryPage}
+        options={({ route }) => ({ title: route.params.name })}
       />
     </ClosetStack.Navigator>
   );
