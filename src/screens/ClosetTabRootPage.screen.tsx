@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { ClosetCategories } from '~src/components/ClosetCategories';
-import { closetCategoriesSelector } from '~src/redux/closet/selectors';
+import { Categories } from '~src/components/Categories';
+import { categoriesSelector } from '~src/redux/closet/selectors';
 
 export const ClosetTabRootPage = () => {
-  const categories = useSelector(closetCategoriesSelector);
-  return <ClosetCategories categories={categories} />;
+  const categories = useSelector(categoriesSelector);
+  return <Categories categories={categories} />;
 };

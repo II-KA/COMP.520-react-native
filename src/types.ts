@@ -3,7 +3,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 export type RootStackParamList = {
   BottomTabs: NavigatorScreenParams<BottomTabsParamList>;
-  ExampleModal: undefined;
+  AddCategoryModal: { parentId: string };
 };
 
 export type BottomTabsParamList = {
@@ -12,8 +12,8 @@ export type BottomTabsParamList = {
 };
 
 export type ClosetStackParamList = {
-  RootPage: undefined | ClosetCategory;
-  CategoryPage: ClosetCategory;
+  RootPage: undefined | Category;
+  CategoryPage: Category;
 };
 
 export type CategoryPageProps = NativeStackScreenProps<
@@ -21,31 +21,25 @@ export type CategoryPageProps = NativeStackScreenProps<
   'CategoryPage'
 >;
 
-interface ClosetCategoryBasics {
+export type AddCategoryModalProps = NativeStackScreenProps<
+  RootStackParamList,
+  'AddCategoryModal'
+>;
+
+export interface Category {
+  id: string;
   name: string;
   position: number;
+  categories?: Category[];
+  items?: Item[];
 }
 
-interface ClosetCategoryWithCategories extends ClosetCategoryBasics {
-  categories: ClosetCategory[];
-  items?: never;
-}
-
-interface ClosetCategoryWithItems extends ClosetCategoryBasics {
-  categories?: never;
-  items: ClosetItem[];
-}
-
-export type ClosetCategory =
-  | ClosetCategoryWithCategories
-  | ClosetCategoryWithItems;
-
-export type ClosetItem = {
-  // identify with timestamp or picture or just generate an id?
+export type Item = {
+  id: string;
   dateBought: Date;
   price: number;
-  material: ClosetMaterial[];
+  material: Material[];
   description?: string;
 };
 
-export type ClosetMaterial = string;
+export type Material = string;

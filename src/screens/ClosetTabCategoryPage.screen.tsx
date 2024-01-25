@@ -1,24 +1,23 @@
 import React, { FC } from 'react';
 import { StyleSheet, Button } from 'react-native';
-import { ClosetCategories } from '~src/components/ClosetCategories';
-import {
-  useClosetNavigation,
-  useRootNavigation,
-} from '~src/hooks/useTypedNavigation';
+import { Categories } from '~src/components/Categories';
+import { useRootNavigation } from '~src/hooks/useTypedNavigation';
 import { CategoryPageProps } from '~src/types';
 
 export const ClosetTabCategoryPage: FC<CategoryPageProps> = ({
   navigation,
   route: {
-    params: { name, categories, items },
+    params: { id, name, categories, items },
   },
 }) => {
   const rootNavigation = useRootNavigation();
-  if (categories) <ClosetCategories categories={categories} />;
+  if (categories) return <Categories categories={categories} />;
   return (
     <Button
       title="Add new category"
-      onPress={() => rootNavigation.navigate('ExampleModal')}
+      onPress={() =>
+        rootNavigation.navigate('AddCategoryModal', { parentId: id })
+      }
     />
   );
 };

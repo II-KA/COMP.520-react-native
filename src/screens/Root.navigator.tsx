@@ -42,7 +42,7 @@ export const RootNavigator: React.FC = () => {
         options={{ headerShown: false }}
       />
       <RootStack.Screen
-        name="ExampleModal"
+        name="AddCategoryModal"
         component={AddCategoryModal}
         options={{ ...modalScreenOptions, title: 'Add Category' }}
       />

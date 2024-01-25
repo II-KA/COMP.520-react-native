@@ -1,5 +1,5 @@
 import { RootState } from '..';
-import { ClosetCategory } from '~src/types';
+import { Category } from '~src/types';
 
-export const closetCategoriesSelector = (state: RootState): ClosetCategory[] =>
+export const categoriesSelector = (state: RootState): Category[] =>
   state.closet.categories;
