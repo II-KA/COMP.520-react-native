@@ -1,35 +1,42 @@
-# ClosetInsights
+# COMP.520 React Native App
 
-iOS and Android apps for ClosetInsights
+React Native app for the course COMP.520, Tampere University.
 
 ## Local setup
 
-Follow the [React Native CLI Quickstart](https://reactnative.dev/docs/environment-setup) for the relevant environment up to (but not including) "Creating a new application".
+First, follow the [React Native CLI Quickstart](https://reactnative.dev/docs/environment-setup) for the relevant environment up to (but not including) "Creating a new application".
 
-### Bundler
-
-Install JavaScript Dependencies and start the bundler
+Second, install JavaScript dependencies and start the bundler.
 
 ```sh
-yarn
-yarn start
+npm install
+npm start
 ```
+
+Next, the application may be started on iOS or Android.
+
+### Android
+
+```sh
+npm run android
+```
+
+To run a React Native Android app, an Android device (virtual or physical) is required. See [Preparing the Android device](https://reactnative.dev/docs/environment-setup) for further information.
 
 ### iOS
 
 ```sh
 npx pod-install
-yarn ios
+npm run ios
 ```
 
-You can also run the app directly from XCode by opening the workspace in XCode and clicking on the play icon.
+## Native Logs
 
-### Android
+To access the console logs, use the following command in a terminal while the app is running:
 
 ```sh
-yarn android
+# For Android:
+npx react-native log-android
+# Or, for iOS:
+npx react-native log-ios
 ```
-
-Note if this if your first time running an Android project, you'll need to register an emulator in Android Studio first. This can be done by opening Android studio, and on the launch page choose Configure -> AVD.
-
-You can also run the app directly from Android Studio by opening the project in Android Studio and clicking on the play icon.
