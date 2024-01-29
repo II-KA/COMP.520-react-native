@@ -11,7 +11,7 @@ export const ClosetTabCategoryPage: FC<CategoryPageProps> = ({
   },
 }) => {
   const rootNavigation = useRootNavigation();
-  if (categories) return <Categories categories={categories} />;
+  if (categories) return <Categories categories={categories} parentId={id} />;
   return (
     <Button
       title="Add new category"

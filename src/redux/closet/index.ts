@@ -61,17 +61,21 @@ export const closetSlice = createSlice({
     },
     deleteCategory: (
       state,
-      action: PayloadAction<{ parentId: string; id: string }>,
+      action: PayloadAction<{ parentId?: string; id: string }>,
     ) => {
       const { parentId, id } = action.payload;
-      const remove = (category: Category) => ({
-        ...category,
-        categories: category.categories?.filter(c => c.id !== id),
-      });
+      if (!parentId)
+        state.categories = state.categories.filter(c => c.id !== id);
+      else {
+        const remove = (category: Category) => ({
+          ...category,
+          categories: category.categories?.filter(c => c.id !== id),
+        });
 
-      state.categories.forEach(
-        executeActionOnCategory({ id: parentId, action: remove }),
-      );
+        state.categories = state.categories.map(
+          executeActionOnCategory({ id: parentId, action: remove }),
+        );
+      }
     },
     updateCategory: (
       state,
