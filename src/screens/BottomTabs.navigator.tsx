@@ -32,7 +32,7 @@ export const BottomTabsNavigator: React.FC = () => {
           headerShown: false,
           tabBarAccessibilityLabel: 'Closet tab',
           tabBarIcon: ({ color, size }) => (
-            <WardrobeIcon color={color} size={size} />
+            <WardrobeIcon color={color} size={size + 4} />
           ),
         }}
       />
@@ -43,7 +43,7 @@ export const BottomTabsNavigator: React.FC = () => {
           title: 'Calendar',
           tabBarAccessibilityLabel: 'Calendar tab',
           tabBarIcon: ({ color, size }) => (
-            <CalendarMonthIcon color={color} size={size} />
+            <CalendarMonthIcon color={color} size={size + 4} />
           ),
         }}
       />

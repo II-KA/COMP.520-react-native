@@ -20,6 +20,7 @@ export const AddCategoryModal: FC<AddCategoryModalProps> = ({
         placeholder="Category name"
         onChangeText={setName}
         value={name}
+        style={styles.input}
       />
       <Button
         disabled={name.length === 0}
@@ -38,5 +39,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
+  },
+  input: {
+    fontSize: 16,
   },
 });

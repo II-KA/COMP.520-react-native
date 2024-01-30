@@ -11,14 +11,16 @@ export const ClosetTabCategoryPage: FC<CategoryPageProps> = ({
   },
 }) => {
   const rootNavigation = useRootNavigation();
-  if (categories) return <Categories categories={categories} parentId={id} />;
   return (
-    <Button
-      title="Add new category"
-      onPress={() =>
-        rootNavigation.navigate('AddCategoryModal', { parentId: id })
-      }
-    />
+    <>
+      {categories && <Categories categories={categories} parentId={id} />}
+      <Button
+        title="Add new category"
+        onPress={() =>
+          rootNavigation.navigate('AddCategoryModal', { parentId: id })
+        }
+      />
+    </>
   );
 };
 
