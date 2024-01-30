@@ -13,7 +13,7 @@ export type BottomTabsParamList = {
 
 export type ClosetStackParamList = {
   RootPage: undefined | Category;
-  CategoryPage: Category;
+  CategoryPage: Pick<Category, 'id' | 'name'>;
 };
 
 export type CategoryPageProps = NativeStackScreenProps<

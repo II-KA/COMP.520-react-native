@@ -59,19 +59,19 @@ const ViewCategory: FC<{
   category: Category;
   parentId?: string;
   onEditOpen: () => void;
-}> = ({ category, parentId, onEditOpen }) => {
+}> = ({ category: { id, name }, parentId, onEditOpen }) => {
   const dispatch = useDispatch();
   const homeNavigation = useClosetNavigation();
   return (
     <>
       <Pressable
-        onPress={() => homeNavigation.push('CategoryPage', category)}
+        onPress={() => homeNavigation.push('CategoryPage', { id, name })}
         style={({ pressed }) => [
           styles.category,
           ...(pressed ? [styles.pressedButton] : []),
         ]}
         android_disableSound={true}>
-        {({ pressed }) => <AppText size={16}>{category.name}</AppText>}
+        {({ pressed }) => <AppText size={16}>{name}</AppText>}
       </Pressable>
       <Pressable
         onPress={onEditOpen}
@@ -83,14 +83,7 @@ const ViewCategory: FC<{
         <EditIcon color={theme.colorGrey} size={28} />
       </Pressable>
       <Pressable
-        onPress={() =>
-          dispatch(
-            closetActions.deleteCategory({
-              parentId,
-              id: category.id,
-            }),
-          )
-        }
+        onPress={() => dispatch(closetActions.deleteCategory({ parentId, id }))}
         style={({ pressed }) => [
           styles.leftButton,
           ...(pressed ? [styles.pressedButton] : []),
@@ -111,7 +104,7 @@ export const Categories: FC<{ categories: Category[]; parentId?: string }> = ({
   return (
     <View style={styles.container}>
       {categories.map(category => (
-        <View key={category.name}>
+        <View key={category.id}>
           {editOpen === category.id ? (
             <EditCategory category={category} onClose={() => setEditOpen('')} />
           ) : (
