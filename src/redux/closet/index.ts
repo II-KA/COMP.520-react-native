@@ -88,7 +88,9 @@ export const closetSlice = createSlice({
         ...(position && { position }),
       });
 
-      state.categories.forEach(executeActionOnCategory({ id, action: modify }));
+      state.categories = state.categories.map(
+        executeActionOnCategory({ id, action: modify }),
+      );
     },
   },
 });

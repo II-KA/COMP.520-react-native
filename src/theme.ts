@@ -1,12 +1,14 @@
 export const theme = {
   colorWhite: '#fff',
   colorBlack10: '#e6e6e6',
+  colorBlack20: '#cccccc',
   colorGrey: '#8E9AAF',
   colorBeige05: '#f4fec1',
   colorPurple50: '#9067C6',
   colorPurple90: '#38182f',
   colorKhaki60: '#5c573e',
   colorCream20: '#f4fec1',
+  colorOrangeRed: '#ff5917',
 
   IBMPlexSans100: 'IBMPlexSans-Thin',
   IBMPlexSans100Italic: 'IBMPlexSans-ThinItalic',
