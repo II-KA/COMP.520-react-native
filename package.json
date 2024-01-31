@@ -1,5 +1,5 @@
 {
-  "name": "ClosetInsights",
+  "name": "closet-insights",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -11,6 +11,7 @@
     "ts:check": "tsc --noEmit"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.21.0",
     "@react-navigation/bottom-tabs": "^6.0.0-next.10",
     "@react-navigation/native": "^6.0.0-next.7",
     "@react-navigation/native-stack": "^6.9.13",
@@ -25,6 +26,7 @@
     "react-native-screens": "^3.2.0",
     "react-native-svg": "^13.12.0",
     "react-redux": "^8.1.2",
+    "redux-persist": "^6.0.0",
     "uuid": "^9.0.1"
   },
   "devDependencies": {
