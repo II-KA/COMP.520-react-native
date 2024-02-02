@@ -10,6 +10,7 @@ import { BottomTabsNavigator } from './BottomTabs.navigator';
 import { StackNavigationOptions } from '@react-navigation/stack';
 import { BackIcon } from 'assets/Icons';
 import { theme } from '~src/theme';
+import { AddItemModal } from './AddItemModal';
 
 const RootStack = createStackNavigator<RootStackParamList>();
 
@@ -45,6 +46,11 @@ export const RootNavigator: React.FC = () => {
         name="AddCategoryModal"
         component={AddCategoryModal}
         options={{ ...modalScreenOptions, title: 'Add Category' }}
+      />
+      <RootStack.Screen
+        name="AddItemModal"
+        component={AddItemModal}
+        options={{ ...modalScreenOptions, title: 'Add Item' }}
       />
     </RootStack.Navigator>
   );

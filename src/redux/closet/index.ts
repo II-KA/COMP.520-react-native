@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
+import * as RNFS from 'react-native-fs';
 import { v4 as uuidv4 } from 'uuid';
-import { Category } from '~src/types';
+import { Category, Item } from '~src/types';
 
 export interface ClosetState {
   categories: Category[];
@@ -90,6 +91,49 @@ export const closetSlice = createSlice({
 
       state.categories = state.categories.map(
         executeActionOnCategory({ id, action: modify }),
+      );
+    },
+    addItemToCategory: (
+      state,
+      action: PayloadAction<{
+        categoryId: string;
+        item: Pick<Item, 'imagePath'>;
+      }>,
+    ) => {
+      const {
+        categoryId,
+        item: { imagePath },
+      } = action.payload;
+      const addItem = (category: Category) => ({
+        ...category,
+        items: [...(category.items ?? []), { id: uuidv4(), imagePath }],
+      });
+
+      state.categories = state.categories.map(
+        executeActionOnCategory({ id: categoryId, action: addItem }),
+      );
+    },
+    deleteItemFromCategory: (
+      state,
+      action: PayloadAction<{
+        categoryId: string;
+        item: Item;
+      }>,
+    ) => {
+      const { categoryId, item } = action.payload;
+      const removeItem = (category: Category) => ({
+        ...category,
+        ...(category.items && {
+          items: category.items.filter(({ id }) => id !== item.id),
+        }),
+      });
+
+      RNFS.unlink(item.imagePath).catch(err =>
+        console.log('IMG NOT DELETED', err),
+      );
+
+      state.categories = state.categories.map(
+        executeActionOnCategory({ id: categoryId, action: removeItem }),
       );
     },
   },

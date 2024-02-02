@@ -4,6 +4,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 export type RootStackParamList = {
   BottomTabs: NavigatorScreenParams<BottomTabsParamList>;
   AddCategoryModal: { parentId: string };
+  AddItemModal: { categoryId: string };
 };
 
 export type BottomTabsParamList = {
@@ -26,6 +27,11 @@ export type AddCategoryModalProps = NativeStackScreenProps<
   'AddCategoryModal'
 >;
 
+export type AddItemModalProps = NativeStackScreenProps<
+  RootStackParamList,
+  'AddItemModal'
+>;
+
 export interface Category {
   id: string;
   name: string;
@@ -36,9 +42,10 @@ export interface Category {
 
 export type Item = {
   id: string;
-  dateBought: Date;
-  price: number;
-  material: Material[];
+  imagePath: string;
+  dateBought?: Date;
+  price?: number;
+  material?: Material[];
   description?: string;
 };
 
