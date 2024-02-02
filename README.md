@@ -40,3 +40,9 @@ npx react-native log-android
 # Or, for iOS:
 npx react-native log-ios
 ```
+
+## Resetting Metro's cache
+
+```sh
+npm start --reset-cache
+```
