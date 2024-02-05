@@ -12,7 +12,7 @@ export const AddCategoryModal: FC<AddCategoryModalProps> = ({
   },
 }) => {
   const dispatch = useDispatch();
-  const [name, setName] = useState('new');
+  const [name, setName] = useState('');
 
   return (
     <View style={styles.container}>
