@@ -36,21 +36,37 @@ export const RootNavigator: React.FC = () => {
         headerBackImage: ({ tintColor }) => (
           <BackIcon color={tintColor} size={24} />
         ),
+        gestureEnabled: false,
+        animationEnabled: false,
       })}>
       <RootStack.Screen
         name="BottomTabs"
         component={BottomTabsNavigator}
-        options={{ headerShown: false }}
+        options={{
+          headerShown: false,
+          gestureEnabled: false,
+          animationEnabled: false,
+        }}
       />
       <RootStack.Screen
         name="AddCategoryModal"
         component={AddCategoryModal}
-        options={{ ...modalScreenOptions, title: 'Add Category' }}
+        options={{
+          ...modalScreenOptions,
+          title: 'Add Category',
+          gestureEnabled: false,
+          animationEnabled: false,
+        }}
       />
       <RootStack.Screen
         name="AddItemModal"
         component={AddItemModal}
-        options={{ ...modalScreenOptions, title: 'Add Item' }}
+        options={{
+          ...modalScreenOptions,
+          title: 'Add Item',
+          gestureEnabled: false,
+          animationEnabled: false,
+        }}
       />
     </RootStack.Navigator>
   );

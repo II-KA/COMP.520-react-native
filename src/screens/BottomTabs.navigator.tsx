@@ -21,6 +21,8 @@ export const BottomTabsNavigator: React.FC = () => {
         headerTitleStyle: { fontFamily: theme.IBMPlexSans300, fontSize: 22 },
         headerStyle: { backgroundColor: theme.colorWhite },
         headerTintColor: theme.colorPurple90,
+        gestureEnabled: false,
+        animationEnabled: false,
       })}
       initialRouteName="ClosetTab"
       backBehavior="history">

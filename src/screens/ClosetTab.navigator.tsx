@@ -21,16 +21,26 @@ export const ClosetTabNavigator: React.FC = () => {
         headerBackImage: ({ tintColor }) => (
           <BackIcon color={tintColor} size={24} />
         ),
+        gestureEnabled: false,
+        animationEnabled: false,
       })}>
       <ClosetStack.Screen
         name="RootPage"
         component={ClosetTabRootPage}
-        options={{ title: 'Closet' }}
+        options={{
+          title: 'Closet',
+          gestureEnabled: false,
+          animationEnabled: false,
+        }}
       />
       <ClosetStack.Screen
         name="CategoryPage"
         component={ClosetTabCategoryPage}
-        options={({ route }) => ({ title: route.params.name })}
+        options={({ route }) => ({
+          title: route.params.name,
+          gestureEnabled: false,
+          animationEnabled: false,
+        })}
       />
     </ClosetStack.Navigator>
   );
