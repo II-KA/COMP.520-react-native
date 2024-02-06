@@ -30,19 +30,33 @@ npx pod-install
 npm run ios
 ```
 
+## Build fails?
+
+The main branch should build successfully. If you encounter build errors, first try the following:
+
+1. Clean gradle cache
+
+```sh
+cd android && ./gradlew clean && ..
+```
+
+2. Start Metro with a clear cache
+
+```sh
+npm start --reset-cache
+```
+
+3. Run android or iOS start command
+
+Reinstalling the node_modules might help as well.
+
 ## Native Logs
 
-To access the console logs, use the following command in a terminal while the app is running:
+To access any console logs, use the following command while the app is running:
 
 ```sh
 # For Android:
 npx react-native log-android
 # Or, for iOS:
 npx react-native log-ios
-```
-
-## Resetting Metro's cache
-
-```sh
-npm start --reset-cache
 ```
